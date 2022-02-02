@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+
+    <ion-title>
+      Home - user logged in: {{loggedIn}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card>
+    <ion-card-header>What do you want to do?</ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-button expand="block" [routerLink]="['/signup']" [disabled]="loggedIn">Sign up <ion-icon name="person-add-outline"></ion-icon></ion-button>
+      <ion-button expand="block" [routerLink]="['/login']" [disabled]="loggedIn">Log in <ion-icon name="log-in-outline"></ion-icon></ion-button>
+      <ion-button expand="block" [routerLink]="['/home']" [disabled]="!loggedIn"(click)="logOutUser()">Log out <ion-icon name="log-out-outline"></ion-icon></ion-button>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Powered by: <img src="/assets/ddqlogo.jpg" width="150px"></ion-title>
+  </ion-toolbar>
+</ion-footer>
