@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit, OnDestroy {
   loggedIn: boolean;
   private loggedInStatusSubs: Subscription;
 
@@ -16,11 +16,14 @@ export class HomePage {
     this.loggedIn = this.authServ.getLoggedInStatus();
   }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit() {
+  ngOnInit(): void {
     this.loggedInStatusSubs = this.authServ.loggedInStatus.subscribe(status => {
       this.loggedIn = status;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.authServ.loggedInStatus.unsubscribe();
   }
 
   logOutUser(){

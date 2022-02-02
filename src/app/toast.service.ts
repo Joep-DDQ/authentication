@@ -18,10 +18,7 @@ export class ToastService {
       buttons: [
        {
           text: 'Ok',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
+          role: 'cancel'
         }
       ]
     }).then((toastData) => {
