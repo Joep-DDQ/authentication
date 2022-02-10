@@ -1,0 +1,15 @@
+{
+  "appId": "nl.ddq.minisecchi",
+  "appName": "Mini-Secchi",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/demo",
+  "cordova": {},
+  "plugins": {
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "429628421623-adhp197n2c0hqu1tc02sh4lau5gcr3ge.apps.googleusercontent.com",
+      "forceCodeForRefreshToken" : true
+    }
+  }
+}
