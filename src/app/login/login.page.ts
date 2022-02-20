@@ -19,11 +19,14 @@ export class LoginPage implements OnInit {
     //console.log(this.username);
     this.authServ.username = this.username;
     this.authServ.password = this.password;
-    this.authServ.signIn();
+    this.authServ.parseSignIn();
     this.clearFields();
   }
   clearFields(){
     this.username = '';
     this.password = '';
   }
+
+
+
 }

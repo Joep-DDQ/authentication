@@ -14,7 +14,7 @@ export class ToastService {
   showToast(message: string) {
     this.myToast = this.toast.create({
       message,
-      duration: 1000,
+      duration: 2000,
       buttons: [
        {
           text: 'Ok',

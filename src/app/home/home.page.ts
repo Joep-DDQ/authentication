@@ -14,43 +14,47 @@ export class HomePage implements OnInit, OnDestroy {
   //user: any;
   //username: string;
 
-  loggedIn: boolean;
-  private loggedInStatusSubs: Subscription;
+  parseLoggedIn: boolean;
+  googleLoggedIn: boolean;
+
+  private parseLoggedInStatusSubs: Subscription;
+  private googleLoggedInStatusSubs: Subscription;
+
 
   constructor(private authServ: AuthenticationService) {
-    this.loggedIn = this.authServ.getLoggedInStatus();
+    this.parseLoggedIn = this.authServ.getParseLoggedInStatus();
+    this.googleLoggedIn = this.authServ.getGoogleLoggedInStatus();
   }
 
   ngOnInit(): void {
-    this.loggedInStatusSubs = this.authServ.loggedInStatus.subscribe(status => {
-      this.loggedIn = status;
-      GoogleAuth.init();
+    GoogleAuth.init();
+    this.authServ.getParseLoggedInUser();
+    this.parseLoggedInStatusSubs = this.authServ.parseLoggedInStatus.subscribe(status => {
+      this.parseLoggedIn = status;
+    });
+    this.googleLoggedInStatusSubs = this.authServ.googleLoggedInStatus.subscribe(status => {
+      this.googleLoggedIn = status;
     });
   }
 
   ngOnDestroy(): void {
-    this.authServ.loggedInStatus.unsubscribe();
+    this.authServ.parseLoggedInStatus.unsubscribe();
+    this.authServ.googleLoggedInStatus.unsubscribe();
   }
 
-  logOutUser(){
-    this.authServ.logOut();
+  parseLogOutUser(){
+    this.authServ.parseLogOut();
   }
 
-  async signIn() {
-    const googleUser = await GoogleAuth.signIn();
-    //this.username = googleUser.name;
-    console.log('signIn:', googleUser);
+  gSignIn(){
+    this.authServ.googleSignIn();
   }
 
-  async refreshToken() {
-    const response = await GoogleAuth.refresh();
-    console.log('refresh:', response);
+  gRefreshToken() {
+    this.authServ.googleRefreshToken();
   }
 
-  async signOut() {
-    const googleUser = await GoogleAuth.signOut();
-    //this.username = '';
-    console.log('signOut: user data = ', googleUser);
+  gSignOut(){
+    this.authServ.googleSignOut();
   }
-
 }

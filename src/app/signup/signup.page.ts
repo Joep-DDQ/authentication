@@ -24,7 +24,7 @@ export class SignupPage implements OnInit {
     this.authServ.username = this.username;
     this.authServ.password = this.password;
     this.authServ.email = this.email;
-    this.authServ.signUp();
+    this.authServ.parseSignUp();
     this.clearFields();
     }
     else {
