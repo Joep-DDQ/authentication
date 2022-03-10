@@ -1,7 +1,8 @@
-package nl.ddq.minisecchi;
+package nl.ddq.logintest;
 
 import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.Plugin;
+import android.os.Bundle; // required for onCreate parameter
 
 import java.util.ArrayList;
 import com.codetrixstudio.capacitor.GoogleAuth.GoogleAuth;

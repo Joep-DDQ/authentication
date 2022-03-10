@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "828857616727",
+    "firebase_url": "https://mobis-310107-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "mobis-310107",
+    "storage_bucket": "mobis-310107.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828857616727:android:5889002fed6c5da79e9612",
+        "android_client_info": {
+          "package_name": "nl.ddq.logintest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828857616727-8v0qknso5vv40b9585v19oko4mo8vmc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqL59OpzgeXNPVEqqna8XamDBzdFfXZHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828857616727-4u0adt91bdetgnfach4roo1cuoanaqf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828857616727:android:3ef39705d3fd124c9e9612",
+        "android_client_info": {
+          "package_name": "nl.ddq.minisecchi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828857616727-u3r4hnt004tmeq0tt15lssf86djabvdq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nl.ddq.minisecchi",
+            "certificate_hash": "69c799873e5fea7bd37705ed5f3a86ccf631a031"
+          }
+        },
+        {
+          "client_id": "828857616727-8v0qknso5vv40b9585v19oko4mo8vmc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqL59OpzgeXNPVEqqna8XamDBzdFfXZHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828857616727-4u0adt91bdetgnfach4roo1cuoanaqf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828857616727:android:69300b51cecb6ddd9e9612",
+        "android_client_info": {
+          "package_name": "nl.ddq.mobisapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828857616727-4r2hjp79trqlh3ajm9n611u1e6p59m6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nl.ddq.mobisapp",
+            "certificate_hash": "69c799873e5fea7bd37705ed5f3a86ccf631a031"
+          }
+        },
+        {
+          "client_id": "828857616727-8v0qknso5vv40b9585v19oko4mo8vmc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqL59OpzgeXNPVEqqna8XamDBzdFfXZHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828857616727-4u0adt91bdetgnfach4roo1cuoanaqf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

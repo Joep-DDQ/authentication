@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class GoogleService {
   googleLoggedIn = false;
   googleLoggedInStatus = new Subject<boolean>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastService: ToastService) { }
 
   checkLoggedIn() {
     GoogleAuth.refresh().then((data) => {
@@ -33,6 +34,7 @@ export class GoogleService {
 
   async signIn() {
     const googleUser = await GoogleAuth.signIn();
+    this.toastService.showToast(`signin${googleUser}`);
     console.log('signIn:', googleUser);
     this.googleLoggedIn = true;
     this.googleLoggedInStatus.next(this.googleLoggedIn);
