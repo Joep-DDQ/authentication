@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignupPageRoutingModule } from './signup-routing.module';
 
 import { SignupPage } from './signup.page';
+import { ParseSignupComponent } from '../parse-signup/parse-signup.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SignupPage } from './signup.page';
     IonicModule,
     SignupPageRoutingModule
   ],
-  declarations: [SignupPage]
+  declarations: [SignupPage,ParseSignupComponent]
 })
 export class SignupPageModule {}

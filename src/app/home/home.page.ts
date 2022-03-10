@@ -1,9 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+
 import { OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+import { Platform } from '@ionic/angular';
+import { ParseService } from '../services/parse.service';
+import { GoogleService } from '../services/google.service';
+
 
 @Component({
   selector: 'app-home',
@@ -13,6 +17,7 @@ import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 export class HomePage implements OnInit, OnDestroy {
   //user: any;
   //username: string;
+  isWeb = false;
 
   parseLoggedIn: boolean;
   googleLoggedIn: boolean;
@@ -21,40 +26,45 @@ export class HomePage implements OnInit, OnDestroy {
   private googleLoggedInStatusSubs: Subscription;
 
 
-  constructor(private authServ: AuthenticationService) {
-    this.parseLoggedIn = this.authServ.getParseLoggedInStatus();
-    this.googleLoggedIn = this.authServ.getGoogleLoggedInStatus();
+  constructor(private parseService: ParseService, private googleService: GoogleService, private platform: Platform) {
+    this.parseLoggedIn = this.parseService.getLoggedInStatus();
+    this.googleLoggedIn = this.googleService.getLoggedInStatus();
   }
 
   ngOnInit(): void {
-    GoogleAuth.init();
-    this.authServ.getParseLoggedInUser();
-    this.parseLoggedInStatusSubs = this.authServ.parseLoggedInStatus.subscribe(status => {
+    this.isWeb = !this.platform.is('android') && !this.platform.is('ios');
+    //needs platform detection. ONLY RUN ON WEB!
+    if (this.isWeb) {
+      GoogleAuth.init();
+    }
+
+    this.parseService.getLoggedInUser();
+    this.parseLoggedInStatusSubs = this.parseService.parseLoggedInStatus.subscribe(status => {
       this.parseLoggedIn = status;
     });
-    this.googleLoggedInStatusSubs = this.authServ.googleLoggedInStatus.subscribe(status => {
+    this.googleLoggedInStatusSubs = this.googleService.googleLoggedInStatus.subscribe(status => {
       this.googleLoggedIn = status;
     });
   }
 
   ngOnDestroy(): void {
-    this.authServ.parseLoggedInStatus.unsubscribe();
-    this.authServ.googleLoggedInStatus.unsubscribe();
+    this.parseService.parseLoggedInStatus.unsubscribe();
+    this.googleService.googleLoggedInStatus.unsubscribe();
   }
 
   parseLogOutUser(){
-    this.authServ.parseLogOut();
+    this.parseService.logOut();
   }
 
   gSignIn(){
-    this.authServ.googleSignIn();
+    this.googleService.signIn();
   }
 
   gRefreshToken() {
-    this.authServ.googleRefreshToken();
+    this.googleService.refreshToken();
   }
 
   gSignOut(){
-    this.authServ.googleSignOut();
+    this.googleService.signOut();
   }
 }

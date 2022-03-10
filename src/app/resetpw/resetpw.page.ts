@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-resetpw',
@@ -7,14 +6,11 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./resetpw.page.scss'],
 })
 export class ResetpwPage implements OnInit {
-  email: string;
 
-  constructor(private authServ: AuthenticationService) { }
+
+  constructor() { }
 
   ngOnInit() {
   }
 
-  resetPw(email){
-    this.authServ.parseResetPassword(email);
-  }
 }

@@ -1,0 +1,31 @@
+<ion-card>
+
+  <ion-list >
+    <ion-list-header>
+      Please fill in your data
+    </ion-list-header>
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input [(ngModel)]="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="Password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" type="Email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>I agree to the terms</ion-label>
+    <ion-toggle [(ngModel)]="termsAccepted"></ion-toggle>
+
+  </ion-item>
+  </ion-list>
+    <ion-button expand="block" (click)="registerUser()">
+      Sign up <ion-icon name="person-add-outline"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" (click)="clearFields()">
+      Reset <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-card>

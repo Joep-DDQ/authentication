@@ -8,26 +8,5 @@
 </ion-header>
 
 <ion-content color="light">
-<ion-card>
-  <ion-list >
-  <ion-list-header>
-    Please fill in your data
-  </ion-list-header>
-  <ion-item>
-    <ion-label position="floating">Username</ion-label>
-    <ion-input [(ngModel)]="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input type="Password" [(ngModel)]="password"></ion-input>
-  </ion-item>
-</ion-list>
-  <ion-button expand="block" (click)="loginUser()">
-    Log in <ion-icon name="log-in-outline"></ion-icon>
-  </ion-button>
-  <ion-button expand="block" (click)="clearFields()">
-    Reset <ion-icon name="close-outline"></ion-icon>
-  </ion-button>
-  <ion-button [routerLink]="['/resetpw']" expand="block">Forgot Password</ion-button>
-</ion-card>
+<app-parse-login></app-parse-login>
 </ion-content>

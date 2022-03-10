@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ResetpwPageRoutingModule } from './resetpw-routing.module';
 
 import { ResetpwPage } from './resetpw.page';
+import { ParseResetpasswordComponent } from '../parse-resetpassword/parse-resetpassword.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ResetpwPage } from './resetpw.page';
     IonicModule,
     ResetpwPageRoutingModule
   ],
-  declarations: [ResetpwPage]
+  declarations: [ResetpwPage,ParseResetpasswordComponent]
 })
 export class ResetpwPageModule {}
