@@ -34,6 +34,8 @@ export class HomePage implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.isWeb = !this.platform.is('android') && !this.platform.is('ios');
     //needs platform detection. ONLY RUN ON WEB!
+    console.log('Is this app running on web? ',this.isWeb);
+
     if (this.isWeb) {
       GoogleAuth.init();
     }
